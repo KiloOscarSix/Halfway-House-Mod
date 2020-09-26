@@ -1,21 +1,21 @@
 init python:
     cheatMenuDict = {
     "Emily": [
-    ["Love Points", "emLP", 20],
-    ["Corruption Points", "emCP", 20],
+    ["Love Points", "emLP", 50],
+    ["Corruption Points", "emCP", 50],
     ],
     "Ashley": [
-    ["Corruption Points", "asCP", 20],
+    ["Corruption Points", "asCP", 50],
     ],
     "Samantha": [
-    ["Corruption Points", "sgCP", 20],
+    ["Corruption Points", "sgCP", 50],
     ],
     "Luis": [
     ["Friendship Points", "luFP", 20],
     ],
     "Monroe": [
-    ["Friendship Points", "omFP", 20],
-    ["Reports", "omIP", 3],
+    ["Friendship Points", "omFP", 10],
+    ["Infraction Points", "omIP", 3],
     ],
     "Other": [
     ["Hollis Anger", "ep3_HOanger", 5],

@@ -3,6 +3,7 @@ init python:
 
     gr = "{color=#0f0}"
     red = "{color=#f00}"
+    blue = "{color=#00f}"
 
     MonroePath = "{color=#0f0}(Monroe Path)"
     EmilyPath = "{color=#0f0}(Emily Path)"

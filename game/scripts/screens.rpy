@@ -1501,6 +1501,7 @@ init -501 screen quick_menu():
             textbutton _("Save") action ShowMenu('save')
             textbutton _("Load") action ShowMenu('load')
             textbutton _("Menu") action ShowMenu()
+            textbutton _("Cheat") action Show("cheatMenu")
 
 init -1 style quick_button_text:
     variant "touch"
