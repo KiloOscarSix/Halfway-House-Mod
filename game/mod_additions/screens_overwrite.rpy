@@ -1,8 +1,3 @@
-
-# 3. Add cheats to quick menu or other relavent place
-#     action Show("mod_cheat_menu")
-# """
-
 screen save():
 
     tag menu
@@ -193,7 +188,7 @@ screen navigation():
 
 
 screen quick_menu():
-    variant "touch"
+
 
     zorder 100
 
@@ -203,14 +198,13 @@ screen quick_menu():
             style_prefix "quick"
 
             xalign 0.5
-            yalign 0.03
-
+            yalign 0.0
 
             textbutton _("Hide") action HideInterface()
             textbutton _("Back") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+
+
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
             textbutton _("Load") action ShowMenu('load')
-            textbutton _("Menu") action ShowMenu()
-            textbutton _("Cheats") action action Show("mod_cheat_menu") xalign 1.0 xoffset -50
+            textbutton _("Cheats") action Show("mod_cheat_menu") xoffset 700
