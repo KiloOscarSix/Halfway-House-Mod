@@ -67,6 +67,23 @@ define persistent.EP7_LIintro_scene = False
 define persistent.EP7_LIattack_scene = False
 define persistent.EP7_extra1_gallery_scene = False
 define persistent.EP7_extra2_gallery_scene = False
+define persistent.EP8_ANintro_scene = False
+define persistent.EP8_changing_room_AS_scene = False
+define persistent.EP8_ANseduceevent1_scene = False
+define persistent.EP8_ANseduceevent2_scene = False
+define persistent.EP8_dinner_kiss_SG_scene = False
+define persistent.EP8_dress_slip_AS_scene = False
+define persistent.EP8_show_tits_EM_scene = False
+define persistent.EP8_promise_EM_scene = False
+define persistent.EP8_familychoice_AS_scene = False
+define persistent.EP8_extra1_gallery_scene = False
+define persistent.EP9_bedroom_AS_scene = False
+define persistent.EP9_kitchen_SG_scene = False
+define persistent.EP9_PI_freebie_scene = False
+define persistent.EP9_alleychaseCP_EM_scene = False
+define persistent.EP9_alleychaseLP_EM_scene = False
+define persistent.EP9_danceparty_EM_scene = False
+define persistent.EP9_extra_gallery_scene = False
 
 
 image ep1_SGbodypan_ricon:
@@ -137,6 +154,8 @@ image ep7_LIshop9_pan:
     "EP7/ep7_LIshop9_panr.webp"
 image ep7_AE86_Dance01ricon:
     "EP7/AE86_Dance01.webp"
+image ep8_AN_Intro_pan:
+    "EP8/ep8_drive2_pan.webp"
 
 init python:
 
@@ -215,12 +234,17 @@ init python:
     ]
 
 screen scenes():
-    tag menu
 
-    style_prefix "navigation"
+
+    style_prefix "navigation" tag menu
     use game_menu(_("Scene Replay"), scroll="viewport"):
 
-        vbox pos (.70,.0):
+
+
+        vpgrid pos (.15,170):
+            xfill True
+            rows 5
+            cols 2
             textbutton "Episode 1" action ShowMenu ("scenes1")
             textbutton "Episode 2" action ShowMenu ("scenes2")
             textbutton "Episode 3" action ShowMenu ("scenes3")
@@ -228,7 +252,10 @@ screen scenes():
             textbutton "Episode 5" action ShowMenu ("scenes5")
             textbutton "Episode 6" action ShowMenu ("scenes6")
             textbutton "Episode 7" action ShowMenu ("scenes7")
-            textbutton "  Extras" action ShowMenu ("scenesEX")
+            textbutton "Episode 8" action ShowMenu ("scenes8")
+            textbutton "Episode 9" action ShowMenu ("scenes9")
+        vbox pos (.42,200):
+            textbutton "Extras" action ShowMenu ("scenesEX")
             if persistent.modGalleryUnlock:
                 textbutton "Lock Scenes":
                     action SetVariable("persistent.modGalleryUnlock", False)
@@ -240,9 +267,9 @@ screen scenes():
 
 
 screen scenes1():
-    tag menu
 
-    style_prefix "scenes"
+
+    style_prefix "scenes" tag menu
     use game_menu(_("Episode One"), scroll="viewport"):
 
         vbox pos (450,.99):
@@ -308,9 +335,9 @@ init python:
     ]
 
 screen scenes2():
-    tag menu
 
-    style_prefix "scenes"
+
+    style_prefix "scenes" tag menu
     use game_menu(_("Episode Two"), scroll="viewport"):
 
         vbox pos (450,.99):
@@ -394,9 +421,9 @@ init python:
     ]
 
 screen scenes3():
-    tag menu
 
-    style_prefix "scenes"
+
+    style_prefix "scenes" tag menu
     use game_menu(_("Episode Three"), scroll="viewport"):
 
         vbox pos (450,.99):
@@ -474,9 +501,9 @@ init python:
     ]
 
 screen scenes4():
-    tag menu
 
-    style_prefix "scenes"
+
+    style_prefix "scenes" tag menu
     use game_menu(_("Episode Four"), scroll="viewport"):
 
         vbox pos (450,.99):
@@ -548,9 +575,9 @@ init python:
     ]
 
 screen scenes5():
-    tag menu
 
-    style_prefix "scenes"
+
+    style_prefix "scenes" tag menu
     use game_menu(_("Episode Five"), scroll="viewport"):
 
         vbox pos (450,.99):
@@ -650,7 +677,11 @@ init python:
         'image' : 'ep4_end',
         'text' : "Bonus 1 Background"
     },
-    {
+    ]
+
+init python:
+
+    scene_galleryEX2 = [{
         'unlocked' : persistent.EP5_extra1_gallery_scene,
         'label' : 'ext4',
         'image' : 'ep5_end',
@@ -667,6 +698,12 @@ init python:
         'label' : 'ext41',
         'image' : 'ep7_version_end',
         'text' : "Bonus 4 Background"
+    },
+    {
+        'unlocked' : persistent.EP8_extra1_gallery_scene,
+        'label' : 'ext42',
+        'image' : 'X_bonus5BG',
+        'text' : "Bonus 5 Background"
     },
     {
         'unlocked' : persistent.EP5_extra2_gallery_scene,
@@ -716,7 +753,11 @@ init python:
         'image' : 'ep5_empc8',
         'text' : "[EM] Photo 8"
     },
-    {
+    ]
+
+init python:
+
+    scene_galleryEX3 = [{
         'unlocked' : persistent.EP5_extra2_gallery_scene,
         'label' : 'ext13',
         'image' : 'ep5_empc9',
@@ -788,7 +829,11 @@ init python:
         'image' : 'ep5_JUpc6_ricon',
         'text' : "Julie Photo 6"
     },
-    {
+    ]
+
+init python:
+
+    scene_galleryEX4 = [{
         'unlocked' : persistent.EP5_extra2_gallery_scene,
         'label' : 'ext25',
         'image' : 'ep5_JUpc7_ricon',
@@ -824,12 +869,88 @@ init python:
         'image' : 'ep7_PLnight42',
         'text' : "Say Cheese!"
     },
+    {
+        'unlocked' : persistent.EP8_extra1_gallery_scene,
+        'label' : 'ext43',
+        'image' : 'X_baby_spank1',
+        'text' : "Blame Oz!"
+    },
+    {
+        'unlocked' : persistent.EP8_extra1_gallery_scene,
+        'label' : 'ext44',
+        'image' : 'X_HH_Xmas_2020',
+        'text' : "Xmas 2020"
+    },
+    {
+        'unlocked' : persistent.EP8_extra1_gallery_scene,
+        'label' : 'ext45',
+        'image' : 'X_Valentines',
+        'text' : "Valentine's 2021"
+    },
+    {
+        'unlocked' : persistent.EP9_extra_gallery_scene,
+        'label' : 'ext46',
+        'image' : 'X_Bonus6BG',
+        'text' : "Bonus 6 Background"
+    },
+    {
+        'unlocked' : persistent.EP9_extra_gallery_scene,
+        'label' : 'ext47',
+        'image' : 'X_EM_H2R',
+        'text' : "[EM] H2R"
+    },
+    {
+        'unlocked' : persistent.EP9_extra_gallery_scene,
+        'label' : 'ext48',
+        'image' : 'X_EM_Kiss',
+        'text' : "[EM] KISS"
+    },
+    ]
+
+init python:
+
+    scene_galleryEX5 = [{
+        'unlocked' : persistent.EP9_extra_gallery_scene,
+        'label' : 'ext49',
+        'image' : 'X_EM_Hakosuka',
+        'text' : "[EM] Hakosuka"
+    },
+    {
+        'unlocked' : persistent.EP9_extra_gallery_scene,
+        'label' : 'ext50',
+        'image' : 'X_EM_Hakosuka2',
+        'text' : "[EM] Hakosuka"
+    },
+    {
+        'unlocked' : persistent.EP9_extra_gallery_scene,
+        'label' : 'ext51',
+        'image' : 'X_EM_Xmax2021_A1',
+        'text' : "XMAS 2021"
+    },
+    {
+        'unlocked' : persistent.EP9_extra_gallery_scene,
+        'label' : 'ext52',
+        'image' : 'X_EM_Xmax2021_B',
+        'text' : "XMAS 2021"
+    },
+    {
+        'unlocked' : persistent.EP9_extra_gallery_scene,
+        'label' : 'ext53',
+        'image' : 'X_New_Years_Render_2022',
+        'text' : "New Years 2022"
+    },
+    {
+        'unlocked' : persistent.EP9_extra_gallery_scene,
+        'label' : 'ext54',
+        'image' : 'X_KU1',
+        'text' : "[KU] Ayame"
+    },
     ]
 
 screen scenesEX():
-    tag menu
 
-    style_prefix "scenes"
+
+    style_prefix "scenes" tag menu
     use game_menu(_("Extras"), scroll="viewport"):
 
         vbox pos (450,.99):
@@ -839,8 +960,8 @@ screen scenesEX():
 
         vpgrid:
             xfill True
-            rows 11
-            cols 4
+            rows 4
+            cols 3
 
             for scene_object in scene_galleryEX:
                 button:
@@ -854,6 +975,214 @@ screen scenesEX():
                         frame:
                             add Frame("gui/locked.png", 0, 0)
                             text scene_object['text']
+        hbox:
+            style_prefix "page"
+
+            xalign 0.46
+            yalign 1.0
+
+            spacing gui.page_spacing
+
+            textbutton _("1") action ShowMenu("scenesEX")
+
+            textbutton _("2") action ShowMenu("scenesEX2")
+
+            textbutton _("3") action ShowMenu("scenesEX3")
+
+            textbutton _("4") action ShowMenu("scenesEX4")
+
+            textbutton _("5") action ShowMenu("scenesEX5")
+
+screen scenesEX2():
+
+
+    style_prefix "scenes" tag menu
+    use game_menu(_("Extras"), scroll="viewport"):
+
+        vbox pos (450,.99):
+            imagebutton auto "gui/button/Back_%s.png" action ShowMenu("scenes")
+        vbox pos (710,-1):
+            imagebutton auto "gui/button/Reload_%s.png" action Function(renpy.reload_script)
+
+        vpgrid:
+            xfill True
+            rows 4
+            cols 3
+
+            for scene_object in scene_galleryEX2:
+                button:
+                    if scene_object['unlocked'] or persistent.modGalleryUnlock:
+
+                        action Show(scene_object['label'], transition=fade)
+                        frame:
+                            add Frame(scene_object['image'], 0, 0)
+                            text scene_object['text']
+                    else:
+                        frame:
+                            add Frame("gui/locked.png", 0, 0)
+                            text scene_object['text']
+        hbox:
+            style_prefix "page"
+
+            xalign 0.46
+            yalign 1.0
+
+            spacing gui.page_spacing
+
+            textbutton _("1") action ShowMenu("scenesEX")
+
+            textbutton _("2") action ShowMenu("scenesEX2")
+
+            textbutton _("3") action ShowMenu("scenesEX3")
+
+            textbutton _("4") action ShowMenu("scenesEX4")
+
+            textbutton _("5") action ShowMenu("scenesEX5")
+
+screen scenesEX3():
+
+
+    style_prefix "scenes" tag menu
+    use game_menu(_("Extras"), scroll="viewport"):
+
+        vbox pos (450,.99):
+            imagebutton auto "gui/button/Back_%s.png" action ShowMenu("scenes")
+        vbox pos (710,-1):
+            imagebutton auto "gui/button/Reload_%s.png" action Function(renpy.reload_script)
+
+        vpgrid:
+            xfill True
+            rows 4
+            cols 3
+
+            for scene_object in scene_galleryEX3:
+                button:
+                    if scene_object['unlocked'] or persistent.modGalleryUnlock:
+
+                        action Show(scene_object['label'], transition=fade)
+                        frame:
+                            add Frame(scene_object['image'], 0, 0)
+                            text scene_object['text']
+                    else:
+                        frame:
+                            add Frame("gui/locked.png", 0, 0)
+                            text scene_object['text']
+        hbox:
+            style_prefix "page"
+
+            xalign 0.46
+            yalign 1.0
+
+            spacing gui.page_spacing
+
+            textbutton _("1") action ShowMenu("scenesEX")
+
+            textbutton _("2") action ShowMenu("scenesEX2")
+
+            textbutton _("3") action ShowMenu("scenesEX3")
+
+            textbutton _("4") action ShowMenu("scenesEX4")
+
+            textbutton _("5") action ShowMenu("scenesEX5")
+
+screen scenesEX4():
+
+
+    style_prefix "scenes" tag menu
+    use game_menu(_("Extras"), scroll="viewport"):
+
+        vbox pos (450,.99):
+            imagebutton auto "gui/button/Back_%s.png" action ShowMenu("scenes")
+        vbox pos (710,-1):
+            imagebutton auto "gui/button/Reload_%s.png" action Function(renpy.reload_script)
+
+        vpgrid:
+            xfill True
+            rows 4
+            cols 3
+
+            for scene_object in scene_galleryEX4:
+                button:
+                    if scene_object['unlocked'] or persistent.modGalleryUnlock:
+
+                        action Show(scene_object['label'], transition=fade)
+                        frame:
+                            add Frame(scene_object['image'], 0, 0)
+                            text scene_object['text']
+                    else:
+                        frame:
+                            add Frame("gui/locked.png", 0, 0)
+                            text scene_object['text']
+        hbox:
+            style_prefix "page"
+
+            xalign 0.46
+            yalign 1.0
+
+            spacing gui.page_spacing
+
+            textbutton _("1") action ShowMenu("scenesEX")
+
+            textbutton _("2") action ShowMenu("scenesEX2")
+
+            textbutton _("3") action ShowMenu("scenesEX3")
+
+            textbutton _("4") action ShowMenu("scenesEX4")
+
+            textbutton _("5") action ShowMenu("scenesEX5")
+
+screen scenesEX5():
+
+
+    style_prefix "scenes" tag menu
+    use game_menu(_("Extras"), scroll="viewport"):
+
+        vbox pos (450,.99):
+            imagebutton auto "gui/button/Back_%s.png" action ShowMenu("scenes")
+        vbox pos (710,-1):
+            imagebutton auto "gui/button/Reload_%s.png" action Function(renpy.reload_script)
+
+        vpgrid:
+            xfill True
+            rows 4
+            cols 3
+
+            for scene_object in scene_galleryEX5:
+                button:
+                    if scene_object['unlocked'] or persistent.modGalleryUnlock:
+
+                        action Show(scene_object['label'], transition=fade)
+                        frame:
+                            add Frame(scene_object['image'], 0, 0)
+                            text scene_object['text']
+                    else:
+                        frame:
+                            add Frame("gui/locked.png", 0, 0)
+                            text scene_object['text']
+        hbox:
+            style_prefix "page"
+
+            xalign 0.46
+            yalign 1.0
+            ypos -9.2
+
+            if renpy.variant("small"):
+                xalign 0.46
+                yalign 1.0
+                ypos -7.7
+
+            spacing gui.page_spacing
+
+            textbutton _("1") action ShowMenu("scenesEX")
+
+            textbutton _("2") action ShowMenu("scenesEX2")
+
+            textbutton _("3") action ShowMenu("scenesEX3")
+
+            textbutton _("4") action ShowMenu("scenesEX4")
+
+            textbutton _("5") action ShowMenu("scenesEX5")
+
 
 init python:
 
@@ -914,9 +1243,9 @@ init python:
     ]
 
 screen scenes6():
-    tag menu
 
-    style_prefix "scenes"
+
+    style_prefix "scenes" tag menu
     use game_menu(_("Episode Six"), scroll="viewport"):
 
         vbox pos (450,.99):
@@ -990,9 +1319,9 @@ init python:
 
 
 screen scenes7():
-    tag menu
 
-    style_prefix "scenes"
+
+    style_prefix "scenes" tag menu
     use game_menu(_("Episode Seven"), scroll="viewport"):
 
         vbox pos (450,.99):
@@ -1006,6 +1335,160 @@ screen scenes7():
             cols 3
 
             for scene_object in scene_gallery7:
+                button:
+                    if scene_object['unlocked'] or persistent.modGalleryUnlock:
+                        action Replay(scene_object['label'], {}, False)
+                        frame:
+                            add Frame(scene_object['image'], 0, 0)
+                            text scene_object['text']
+                    else:
+                        frame:
+                            add Frame("gui/locked.png", 0, 0)
+                            text scene_object['text']
+
+init python:
+
+    scene_gallery8 = [{
+        'unlocked' : persistent.EP8_ANintro_scene,
+        'label' : 'ep8_ANintroR',
+        'image' : 'ep8_AN_Intro_pan',
+        'text' : "[AN] Intro"
+    },
+    {
+        'unlocked' : persistent.EP8_changing_room_AS_scene,
+        'label' : 'ep8_ASpose1',
+        'image' : 'ep8_store40',
+        'text' : "[AS] Makeover Show"
+    },
+    {
+        'unlocked' : persistent.EP8_ANseduceevent1_scene,
+        'label' : 'ep8_ANseduceevent1',
+        'image' : 'ep8_masion146a',
+        'text' : "[AN] Desperate Plea"
+    },
+    {
+        'unlocked' : persistent.EP8_ANseduceevent2_scene,
+        'label' : 'ep8_ANseduceevent2',
+        'image' : 'ep8_masion131',
+        'text' : "[AN] Distressed Plea"
+    },
+    {
+        'unlocked' : persistent.EP8_dinner_kiss_SG_scene,
+        'label' : 'ep8_SG_dinnerkiss',
+        'image' : 'ep8_night55',
+        'text' : "[SG] Taste Transfer"
+    },
+    {
+        'unlocked' : persistent.EP8_dress_slip_AS_scene,
+        'label' : 'ep8_ASdressslip',
+        'image' : 'ep8_night93',
+        'text' : "[AS] Freudian slip"
+    },
+    {
+        'unlocked' : persistent.EP8_show_tits_EM_scene,
+        'label' : 'ep8_showtitsrep',
+        'image' : 'ep8_night124',
+        'text' : "[EM] First Touch"
+    },
+    {
+        'unlocked' : persistent.EP8_promise_EM_scene,
+        'label' : 'ep8_EMpromiserep',
+        'image' : 'ep8_night120',
+        'text' : "[EM] Hot promise"
+    },
+    {
+        'unlocked' : persistent.EP8_familychoice_AS_scene,
+        'label' : 'ep8_AS_familychoice_rep',
+        'image' : 'ep8_night131',
+        'text' : "[AS] Sisters Fantasy"
+    },
+    ]
+
+screen scenes8():
+
+
+    style_prefix "scenes" tag menu
+    use game_menu(_("Episode Eight"), scroll="viewport"):
+
+        vbox pos (450,.99):
+            imagebutton auto "gui/button/Back_%s.png" action ShowMenu("scenes")
+        vbox pos (710,-1):
+            imagebutton auto "gui/button/Reload_%s.png" action Function(renpy.reload_script)
+
+        vpgrid:
+            xfill True
+            rows 4
+            cols 3
+
+            for scene_object in scene_gallery8:
+                button:
+                    if scene_object['unlocked'] or persistent.modGalleryUnlock:
+                        action Replay(scene_object['label'], {}, False)
+                        frame:
+                            add Frame(scene_object['image'], 0, 0)
+                            text scene_object['text']
+                    else:
+                        frame:
+                            add Frame("gui/locked.png", 0, 0)
+                            text scene_object['text']
+
+init python:
+
+    scene_gallery9 = [{
+        'unlocked' : persistent.EP9_bedroom_AS_scene,
+        'label' : 'ep9_ASroomvisit',
+        'image' : 'ep9_morning72',
+        'text' : "[AS] Sleeping Beast"
+    },
+    {
+        'unlocked' : persistent.EP9_kitchen_SG_scene,
+        'label' : 'ep9_SGkitchenshow',
+        'image' : 'ep9_morning129',
+        'text' : "[SG] Kitchen Encounter"
+    },
+    {
+        'unlocked' : persistent.EP9_PI_freebie_scene,
+        'label' : 'ep9_PIfreebieshowr',
+        'image' : 'ep9_garage84',
+        'text' : "[PI] Freebie Show"
+    },
+    {
+        'unlocked' : persistent.EP9_alleychaseCP_EM_scene,
+        'label' : 'ep9_EMalleychaseCPR',
+        'image' : 'ep9_meetup26',
+        'text' : "[EM] A Pervy Encounter"
+    },
+    {
+        'unlocked' : persistent.EP9_alleychaseLP_EM_scene,
+        'label' : 'ep9_EMalleychaseLPR',
+        'image' : 'ep9_meetup81',
+        'text' : "[EM] A Sweet Punishment"
+    },
+    {
+        'unlocked' : persistent.EP9_danceparty_EM_scene,
+        'label' : 'EP9_Danceparty',
+        'image' : 'ep9_nightclub207',
+        'text' : "[EM] Dirty Dancing"
+    },
+    ]
+
+screen scenes9():
+
+
+    style_prefix "scenes" tag menu
+    use game_menu(_("Episode Nine"), scroll="viewport"):
+
+        vbox pos (450,.99):
+            imagebutton auto "gui/button/Back_%s.png" action ShowMenu("scenes")
+        vbox pos (710,-1):
+            imagebutton auto "gui/button/Reload_%s.png" action Function(renpy.reload_script)
+
+        vpgrid:
+            xfill True
+            rows 4
+            cols 3
+
+            for scene_object in scene_gallery9:
                 button:
                     if scene_object['unlocked'] or persistent.modGalleryUnlock:
                         action Replay(scene_object['label'], {}, False)
